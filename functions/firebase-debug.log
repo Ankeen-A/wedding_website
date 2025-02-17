@@ -1,0 +1,99 @@
+[debug] [2024-12-20T16:25:57.732Z] ----------------------------------------------------------------------
+[debug] [2024-12-20T16:25:57.734Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\kuki\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js functions:shell
+[debug] [2024-12-20T16:25:57.734Z] CLI Version:   13.29.1
+[debug] [2024-12-20T16:25:57.734Z] Platform:      win32
+[debug] [2024-12-20T16:25:57.734Z] Node Version:  v18.9.0
+[debug] [2024-12-20T16:25:57.735Z] Time:          Fri Dec 20 2024 08:25:57 GMT-0800 (Pacific Standard Time)
+[debug] [2024-12-20T16:25:57.735Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-12-20T16:25:57.797Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-12-20T16:25:57.797Z] > authorizing via signed-in user (kuki31545@gmail.com)
+[debug] [2024-12-20T16:25:57.797Z] [iam] checking project wedding-website-d345d for permissions ["firebase.projects.get"]
+[debug] [2024-12-20T16:25:57.798Z] Checked if tokens are valid: true, expires at: 1734714062910
+[debug] [2024-12-20T16:25:57.798Z] Checked if tokens are valid: true, expires at: 1734714062910
+[debug] [2024-12-20T16:25:57.799Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/wedding-website-d345d:testIamPermissions [none]
+[debug] [2024-12-20T16:25:57.799Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/wedding-website-d345d:testIamPermissions x-goog-quota-user=projects/wedding-website-d345d
+[debug] [2024-12-20T16:25:57.800Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/wedding-website-d345d:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-12-20T16:25:58.092Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/wedding-website-d345d:testIamPermissions 200
+[debug] [2024-12-20T16:25:58.092Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/wedding-website-d345d:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-12-20T16:25:58.095Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-12-20T16:25:58.097Z] defaultcredentials: writing to file C:\Users\kuki\AppData\Roaming\firebase\kuki31545_gmail_com_application_default_credentials.json
+[debug] [2024-12-20T16:25:58.098Z] DEBUG: Setting GAC to C:\Users\kuki\AppData\Roaming\firebase\kuki31545_gmail_com_application_default_credentials.json
+[debug] [2024-12-20T16:25:58.099Z] Checked if tokens are valid: true, expires at: 1734714062910
+[debug] [2024-12-20T16:25:58.099Z] Checked if tokens are valid: true, expires at: 1734714062910
+[debug] [2024-12-20T16:25:58.099Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/wedding-website-d345d/adminSdkConfig [none]
+[debug] [2024-12-20T16:25:58.461Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/wedding-website-d345d/adminSdkConfig 200
+[debug] [2024-12-20T16:25:58.461Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/wedding-website-d345d/adminSdkConfig {"projectId":"wedding-website-d345d","storageBucket":"wedding-website-d345d.firebasestorage.app"}
+[debug] [2024-12-20T16:25:58.472Z] [functions] Watching "C:\Users\kuki\Desktop\wedding-website\functions" for Cloud Functions...
+[debug] [2024-12-20T16:25:58.476Z] Validating nodejs source
+[debug] [2024-12-20T16:25:59.505Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "22"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^13.0.2",
+    "firebase-functions": "^6.2.0",
+    "googleapis": "^144.0.0"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-12-20T16:25:59.506Z] Building nodejs source
+[debug] [2024-12-20T16:25:59.506Z] Failed to find version of module node: reached end of search path C:\Users\kuki\Desktop\wedding-website\functions\node_modules
+[warn] !  functions: Your requested "node" version "22" doesn't match your global version "18". Using node@18 from host. 
+[debug] [2024-12-20T16:25:59.508Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-20T16:25:59.512Z] Found firebase-functions binary at 'C:\Users\kuki\Desktop\wedding-website\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8742
+
+[debug] [2024-12-20T16:26:00.627Z] Got response from /__/functions.yaml {"endpoints":{"addRSVPToGoogleSheets":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"eventTrigger":{"eventType":"google.cloud.firestore.document.v1.created","eventFilters":{"database":"(default)","namespace":"(default)"},"eventFilterPathPatterns":{"document":"rsvp/{docId}"},"retry":false},"entryPoint":"addRSVPToGoogleSheets"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[debug] [2024-12-20T16:26:00.660Z] [functions] Loaded functions definitions from source: addRSVPToGoogleSheets.
+[debug] [2024-12-20T16:26:00.661Z] [functions[us-central1-addRSVPToGoogleSheets]] function ignored because the firestore emulator does not exist or is not running.
+[info] i  functions: Loaded functions: addRSVPToGoogleSheets 
+[warn] !  functions: The following emulators are not running, calls to these services will affect production: firestore, database, pubsub, storage, eventarc, tasks 
+[debug] [2024-12-20T16:29:07.519Z] DEBUG: File C:\Users\kuki\Desktop\wedding-website\functions\package.json changed, reloading triggers
+[debug] [2024-12-20T16:29:08.526Z] Validating nodejs source
+[debug] [2024-12-20T16:29:09.610Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^13.0.2",
+    "firebase-functions": "^6.2.0",
+    "googleapis": "^144.0.0"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-12-20T16:29:09.610Z] Building nodejs source
+[debug] [2024-12-20T16:29:09.610Z] Failed to find version of module node: reached end of search path C:\Users\kuki\Desktop\wedding-website\functions\node_modules
+[warn] !  functions: Your requested "node" version "22" doesn't match your global version "18". Using node@18 from host. 
+[debug] [2024-12-20T16:29:09.611Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-20T16:29:09.614Z] Found firebase-functions binary at 'C:\Users\kuki\Desktop\wedding-website\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8754
+
+[debug] [2024-12-20T16:29:10.694Z] Got response from /__/functions.yaml {"endpoints":{"addRSVPToGoogleSheets":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"eventTrigger":{"eventType":"google.cloud.firestore.document.v1.created","eventFilters":{"database":"(default)","namespace":"(default)"},"eventFilterPathPatterns":{"document":"rsvp/{docId}"},"retry":false},"entryPoint":"addRSVPToGoogleSheets"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[debug] [2024-12-20T16:29:10.727Z] [functions] Loaded functions definitions from source: addRSVPToGoogleSheets.

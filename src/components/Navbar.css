@@ -1,0 +1,53 @@
+  /* Navbar.css */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Albert Sans', sans-serif;
+  font-weight: 800;
+  background-color: transparent; /* No background */
+  width: 100%;
+  position: absolute; /* Position the navbar at the top of the page */
+  top: 2vh;
+  left: 0;
+  z-index: 10; /* Ensures navbar text stays above page content */
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  background-color: transparent; 
+  align-items: center;
+  margin: auto;
+  justify-content:space-between;
+  padding: 0;
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  background-color: transparent; 
+}
+
+.navbar-links a:hover {
+  text-decoration: underline;
+  text-underline-offset: 8px;
+  background-color: transparent; 
+}
+
+.navButton {
+  margin: 20px;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    margin-top: 20px;
+  }
+  .navButton {
+    font-size: 12px;
+    font-weight: 300;
+    font-family: 'Lato', sans-serif;
+    margin:0 12px;
+  }
+
+}
