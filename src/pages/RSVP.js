@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
 import './RSVP.css';
-import { collection, addDoc } from "firebase/firestore"; // Firestore functions
-import { db } from "../config/firebase"; // Import Firestore instance
-import flower2 from '../assets/flower2.svg';
-import flower1 from '../assets/flower1.svg';
 
 const RSVP = () => {
   // State to manage form data
@@ -37,8 +33,34 @@ const RSVP = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+  
+    // Convert form data to query string
+    const queryParams = new URLSearchParams({
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      email: formData.email,
+      foodRestrictions: formData.foodRestrictions.join(","),
+      alcoholPreferences: formData.alcoholPreferences.join(","),
+    }).toString();
+  
+    // Construct the full URL with query parameters
+    const requestUrl = `https://wedding-website-197968004371.us-central1.run.app?${queryParams}`;
+  
     try {
-      await addDoc(collection(db, "rsvp"), formData);
+      const response = await fetch(requestUrl, {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+      });
+  
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+  
+      const data = await response.json();
+      if (!data.success) {
+        throw new Error(data.message || "Unknown error occurred");
+      }
+  
       alert("RSVP submitted! Thank you!");
       setFormData({
         firstName: "",
@@ -46,7 +68,7 @@ const RSVP = () => {
         email: "",
         foodRestrictions: [],
         alcoholPreferences: [],
-      }); // Reset form
+      });
     } catch (error) {
       console.error("Error submitting RSVP:", error);
       alert("Something went wrong. Please try again.");
@@ -54,7 +76,7 @@ const RSVP = () => {
       setIsSubmitting(false);
     }
   };
-
+  
   return (
     <div className="rsvpBackground">
       {/* Uncomment if you want flowers */}
@@ -97,7 +119,7 @@ const RSVP = () => {
             />
           </div>
         </div>
-        
+
         <h3>Food Restrictions / Allergies</h3>
         <div className="formSection">
           <label>
@@ -145,7 +167,7 @@ const RSVP = () => {
             Not Applicable
           </label>
         </div>
-        
+
         <h3>Alcohol Preferences</h3>
         <div className="formSection">
           {["Tequila", "Vodka", "Rum", "Wine", "Beer", "Whiskey", "Not drinking"].map((drink) => (
@@ -162,7 +184,7 @@ const RSVP = () => {
             </label>
           ))}
         </div>
-        
+
         <button type="submit" className="submitButton" disabled={isSubmitting}>
           {isSubmitting ? "Submitting..." : "Submit"}
         </button>
