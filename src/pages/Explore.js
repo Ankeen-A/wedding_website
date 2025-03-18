@@ -14,13 +14,12 @@ const Explore = () => {
           <h3>Residence Inn Los Angeles Glendale</h3>
           <h3>Hyatt Place Glendale / Los Angeles</h3>
           <h3>The Glenmark, Glendale, a Tribute Portfolio Hotel</h3>
-          <h3>Hilton Los Angeles North/Glendale & Executive Meeting Ctr</h3>
+          <h3>Hilton Los Angeles North/Glendale</h3>
         </div>
 
         <h2>Fun Outdoor Activities</h2>
         <div> 
           <h3>Venice Beach</h3>  
-            <li>Great place to go and walk around, normally there are lots of little food places, and booths selling trinckets</li>
           <h3>LA Zoo</h3>     
           <h3>Universal Studios Hollywood</h3>  
           <h3>Disneyland California</h3>  

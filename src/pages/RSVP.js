@@ -2,72 +2,74 @@ import React, { useState } from 'react';
 import './RSVP.css';
 
 const RSVP = () => {
-  // State to manage form data
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
-    foodRestrictions: [],
+    foodRestrictions: "", // Changed to string
     alcoholPreferences: [],
+    wantsToGiveSpeech: false,
   });
 
-  const [isSubmitting, setIsSubmitting] = useState(false); // State for submission status
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Handle input changes
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
 
     if (type === "checkbox") {
-      setFormData((prevData) => ({
-        ...prevData,
-        [name]: checked
-          ? [...prevData[name], value]
-          : prevData[name].filter((item) => item !== value),
-      }));
+      if (name === "wantsToGiveSpeech") {
+        setFormData({ ...formData, wantsToGiveSpeech: checked });
+      } else {
+        setFormData((prevData) => ({
+          ...prevData,
+          [name]: checked
+            ? [...prevData[name], value]
+            : prevData[name].filter((item) => item !== value),
+        }));
+      }
     } else {
-      setFormData({ ...formData, [name]: value });
+      setFormData({ ...formData, [name]: value }); // For radio buttons and text inputs
     }
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-  
-    // Convert form data to query string
+
     const queryParams = new URLSearchParams({
       firstName: formData.firstName,
       lastName: formData.lastName,
       email: formData.email,
-      foodRestrictions: formData.foodRestrictions.join(","),
+      foodRestrictions: formData.foodRestrictions, // Removed `.join()` since it's now a string
       alcoholPreferences: formData.alcoholPreferences.join(","),
+      wantsToGiveSpeech: formData.wantsToGiveSpeech.toString(),
     }).toString();
-  
-    // Construct the full URL with query parameters
+
     const requestUrl = `https://wedding-website-197968004371.us-central1.run.app?${queryParams}`;
-  
+
     try {
       const response = await fetch(requestUrl, {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       });
-  
+
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
-  
+
       const data = await response.json();
       if (!data.success) {
         throw new Error(data.message || "Unknown error occurred");
       }
-  
+
       alert("RSVP submitted! Thank you!");
       setFormData({
         firstName: "",
         lastName: "",
         email: "",
-        foodRestrictions: [],
+        foodRestrictions: "",
         alcoholPreferences: [],
+        wantsToGiveSpeech: false,
       });
     } catch (error) {
       console.error("Error submitting RSVP:", error);
@@ -76,13 +78,9 @@ const RSVP = () => {
       setIsSubmitting(false);
     }
   };
-  
+
   return (
     <div className="rsvpBackground">
-      {/* Uncomment if you want flowers */}
-      {/* <img src={flower1} alt="flower" className="flower1"></img>
-      <img src={flower2} alt="flower" className="flower2"></img> */}
-
       <form className="rsvpForm" onSubmit={handleSubmit}>
         <h1 className='title'>Rsvp Form</h1>
         <p>Please fill the form for EVERY person attending</p>
@@ -122,55 +120,25 @@ const RSVP = () => {
 
         <h3>Food Restrictions / Allergies</h3>
         <div className="formSection">
-          <label>
-            <input
-              type="checkbox"
-              className='input'
-              name="foodRestrictions"
-              value="Vegan"
-              checked={formData.foodRestrictions.includes("Vegan")}
-              onChange={handleChange}
-            />
-            Vegan
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              className='input'
-              name="foodRestrictions"
-              value="Vegetarian"
-              checked={formData.foodRestrictions.includes("Vegetarian")}
-              onChange={handleChange}
-            />
-            Vegetarian
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              className='input'
-              name="foodRestrictions"
-              value="Other"
-              checked={formData.foodRestrictions.includes("Other")}
-              onChange={handleChange}
-            />
-            Other (please list)
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              className='input'
-              name="foodRestrictions"
-              value="Not Applicable"
-              checked={formData.foodRestrictions.includes("Not Applicable")}
-              onChange={handleChange}
-            />
-            Not Applicable
-          </label>
+          {['Vegan', 'Vegeterian', 'Halal (replace meat with fish)', 'None'].map((foodRestriction) => (
+            <label key={foodRestriction}>
+              <input
+                type="radio"
+                className='input'
+                name="foodRestrictions"
+                value={foodRestriction}
+                checked={formData.foodRestrictions === foodRestriction} // Updated logic
+                onChange={handleChange}
+                required
+              />
+              {foodRestriction}
+            </label>
+          ))}
         </div>
 
         <h3>Alcohol Preferences</h3>
         <div className="formSection">
-          {["Tequila", "Vodka", "Rum", "Wine", "Beer", "Whiskey", "Not drinking"].map((drink) => (
+          {['Tequila', 'Vodka', 'Rum', 'Wine', 'Beer', 'Whiskey', 'Mocktails'].map((drink) => (
             <label key={drink}>
               <input
                 type="checkbox"
@@ -183,6 +151,31 @@ const RSVP = () => {
               {drink}
             </label>
           ))}
+        </div>
+
+        <h3>Wedding Speeches <em>(optional)</em></h3>
+        <div className="formSection">
+          <label>
+            <input
+              type="checkbox"
+              name="wantsToGiveSpeech"
+              checked={formData.wantsToGiveSpeech}
+              onChange={handleChange}
+            />
+            Check this box if you would like to give a speech
+          </label>
+        </div>
+
+        <h3>Additional Comments <em>(optional)</em></h3>
+        <div className="formSection">
+          <textarea
+            className='input'
+            name="comments"
+            placeholder="Leave a comment here..."
+            value={formData.comments || ""}
+            onChange={handleChange}
+            rows={4}
+          />
         </div>
 
         <button type="submit" className="submitButton" disabled={isSubmitting}>

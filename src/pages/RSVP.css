@@ -123,6 +123,13 @@ h3 {
   margin:10px;
 }
 
+.formSection textarea {
+  border-radius: 15px;
+  border-width: 1px;
+  padding: 10px;
+}
+
+
 /* 
 .flower1{
   position: fixed;

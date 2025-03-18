@@ -14,6 +14,45 @@
   text-align: center;
   color: white;
 } */
+.passwordBox {
+  z-index: 2; /* Ensures it sits above background layers */
+  position: relative;
+}
+
+.passwordBox h3 {
+  font-family: 'Lato', sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.passwordBox input {
+  border-radius:20px;
+  margin:5px 5px;
+  padding: 8px 10px;
+  background-color: rgba(235, 235, 235, 1);
+  border-width: 0px;
+  width:50%;
+}
+
+.passwordBox button {
+  border-radius:20px;
+  margin:5px 10px;
+  padding: 8px 15px;
+  border-width: 1px;
+  border-color: rgba(124, 124, 124, 1);
+  background-color: rgba(217, 217, 217, 0.3);
+  color: white;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.35); /* Drop shadow */
+  transition: box-shadow 0.2s ease; /* Smooth shadow on hover */
+}
+
+.passwordBox button:hover {
+  box-shadow: 2px 8px 10px rgba(0, 0, 0, 0.4); /* Darker/larger shadow on hover */
+  cursor: pointer;
+  background-color: rgba(217, 217, 217, 0.5);
+}
 
 .scheduleBackground {
   display: flex;
@@ -63,18 +102,9 @@
   align-items: left;
 }
 
-h2 {
-  font-family: 'Albert Sans', sans-serif;
-  text-align: center;
-  margin-top: 60px;
-}
-
 h3 {
   font-family: 'Lato', sans-serif;
-  font-size: 24px;
-  font-weight: 300;
-  margin-bottom: 10px;
-  margin-top: 20px;
+  text-align: center;
 }
 
 li{
