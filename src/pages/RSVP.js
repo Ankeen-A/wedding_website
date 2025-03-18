@@ -6,7 +6,7 @@ const RSVP = () => {
     firstName: "",
     lastName: "",
     email: "",
-    foodRestrictions: "", // Changed to string
+    foodRestrictions: "",
     alcoholPreferences: [],
     wantsToGiveSpeech: false,
     comments: ""
@@ -16,6 +16,8 @@ const RSVP = () => {
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
+
+    console.log(`Updating ${name} with value:`, value); // Debugging log
 
     if (type === "checkbox") {
       if (name === "wantsToGiveSpeech") {
@@ -29,7 +31,7 @@ const RSVP = () => {
         }));
       }
     } else {
-      setFormData({ ...formData, [name]: value }); // For radio buttons and text inputs
+      setFormData({ ...formData, [name]: value.trim() }); // Added `.trim()` to clean input
     }
   };
 
@@ -37,15 +39,20 @@ const RSVP = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const queryParams = new URLSearchParams({
+    const queryParamsObj = {
       firstName: formData.firstName,
       lastName: formData.lastName,
       email: formData.email,
-      foodRestrictions: formData.foodRestrictions, // Removed `.join()` since it's now a string
+      foodRestrictions: formData.foodRestrictions,
       alcoholPreferences: formData.alcoholPreferences.join(","),
       wantsToGiveSpeech: formData.wantsToGiveSpeech.toString(),
-      comments: formData.comments,
-    }).toString();
+    };
+
+    if (formData.comments.trim()) {
+      queryParamsObj.comments = encodeURIComponent(formData.comments.trim());
+    }
+
+    const queryParams = new URLSearchParams(queryParamsObj).toString();
 
     const requestUrl = `https://wedding-website-197968004371.us-central1.run.app?${queryParams}`;
 
@@ -123,14 +130,14 @@ const RSVP = () => {
 
         <h3>Food Restrictions / Allergies</h3>
         <div className="formSection">
-          {['Vegan', 'Vegeterian', 'Halal (replace meat with fish)', 'None'].map((foodRestriction) => (
+          {["Vegan", "Vegeterian", "Halal (replace meat with fish)", "None"].map((foodRestriction) => (
             <label key={foodRestriction}>
               <input
                 type="radio"
                 className='input'
                 name="foodRestrictions"
                 value={foodRestriction}
-                checked={formData.foodRestrictions === foodRestriction} // Updated logic
+                checked={formData.foodRestrictions === foodRestriction}
                 onChange={handleChange}
                 required
               />
@@ -141,7 +148,7 @@ const RSVP = () => {
 
         <h3>Alcohol Preferences</h3>
         <div className="formSection">
-          {['Tequila', 'Vodka', 'Rum', 'Wine', 'Beer', 'Whiskey', 'Mocktails'].map((drink) => (
+          {["Tequila", "Vodka", "Rum", "Wine", "Beer", "Whiskey", "Mocktails"].map((drink) => (
             <label key={drink}>
               <input
                 type="checkbox"
