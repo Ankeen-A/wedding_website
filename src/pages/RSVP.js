@@ -9,6 +9,7 @@ const RSVP = () => {
     foodRestrictions: "", // Changed to string
     alcoholPreferences: [],
     wantsToGiveSpeech: false,
+    comments: ""
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -43,6 +44,7 @@ const RSVP = () => {
       foodRestrictions: formData.foodRestrictions, // Removed `.join()` since it's now a string
       alcoholPreferences: formData.alcoholPreferences.join(","),
       wantsToGiveSpeech: formData.wantsToGiveSpeech.toString(),
+      comments: formData.comments,
     }).toString();
 
     const requestUrl = `https://wedding-website-197968004371.us-central1.run.app?${queryParams}`;
@@ -70,6 +72,7 @@ const RSVP = () => {
         foodRestrictions: "",
         alcoholPreferences: [],
         wantsToGiveSpeech: false,
+        comments: "",
       });
     } catch (error) {
       console.error("Error submitting RSVP:", error);
