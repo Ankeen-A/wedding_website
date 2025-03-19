@@ -7,6 +7,7 @@ import RSVP from './pages/RSVP';
 import Schedule from './pages/Schedule';
 import FAQ from './pages/FAQ';
 import Explore from './pages/Explore';
+import Registry from './pages/Registry';
 
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/schedule" element={<Schedule />} />
         <Route path="/FAQ" element={<FAQ />} />
         <Route path="/Explore" element={<Explore />} />
+        <Route path="/Registry" element={<Registry />} />
       </Routes>
     </Router>
   );

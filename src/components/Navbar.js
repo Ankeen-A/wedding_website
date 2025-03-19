@@ -12,6 +12,7 @@ const Navbar = () => {
         <li className='navButton'><Link to="/schedule">Schedule</Link></li>
         <li className='navButton'><Link to="/faq">FAQ</Link></li>
         <li className='navButton'><Link to="/explore">Explore</Link></li>
+        <li className='navButton'><Link to="/registry">Registry</Link></li>
       </ul>
     </nav>
   );

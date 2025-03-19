@@ -22,62 +22,56 @@ const FAQ = () => {
             styles preferred for an elegant, fairytale-inspired look. This may be a great time to channel your inner Bridgerton! 
           </p>
 
-          <h2 className='q2'>2. Do you have a gift registry?</h2>
-          <p className='ans'>
-            Your presence at our wedding is the greatest gift we could ask for! If you would like to honor us with a gift, 
-            we kindly prefer contributions in cash or gold to help us start this exciting new chapter together. Thank you for your generosity!
-          </p>
-          
-          <h2 className='q3'>3. Can I bring a plus one?</h2>
+          <h2 className='q2'>2. Can I bring a plus one?</h2>
           <p className='ans'>
             To keep our celebration intimate and meaningful, we’ve carefully planned the guest list. 
             We’re so excited to celebrate with you, and your invitation is just for you. We appreciate your understanding!
           </p>
           
-          <h2 className='q4'>4. Are kids invited?</h2>
+          <h2 className='q3'>3. Are kids invited?</h2>
           <p className='ans'>
             While we adore your little ones, we’ve decided to keep the celebration for guests aged 10 and up. 
             We hope this makes your evening as relaxing and enjoyable as possible—thank you for understanding!
           </p>
     
-          <h2 className='q5'>5.  Where should I park on the day of the wedding?</h2>
+          <h2 className='q4'>4.  Where should I park on the day of the wedding?</h2>
           <p className='ans'>
             There are parking lots where you can self-park your car at St. Mary's Armenian Apostolic Church (the ceremony location). 
             At the reception venue - Stars on Brand - there will be vallet parking priced at $16 per car.
           </p>
 
-          <h2 className='q6'>6. Where should I stay?</h2>
+          <h2 className='q5'>5. Where should I stay?</h2>
           <p className='ans'>
-            We do NOT have arrangements with any hotels. Guests are welcome to stay at any hotel of their preference. 
+            We do NOT have arrangements with any hotels. Guests are welcome to stay at any accomodations of their preference. 
           </p>
 
-          <h2 className='q7'>7. What will the weather be like?</h2>
+          <h2 className='q6'>6. What will the weather be like?</h2>
           <p className='ans'>
             In Glendale, California, summer days are warm and sunny. 
             Temperatures typically range from 24–33°C (75–91°F), so plan to stay cool and comfortable. 
             Both the church and the venue will be air-conditioned.
           </p>
 
-          <h2 className='q8'>8. When should I arrive?</h2>
+          <h2 className='q7'>7. When should I arrive?</h2>
           <p className='ans'>
             A detailed schedule and breakdown of the day is provided under the "schedule" tab. Please refer to the times listed and
             plan on being at least 10 minutes early to make sure you don't miss anything!
           </p>
 
-          <h2 className='q9'>9. What should I do if I’m traveling from out of town?</h2>
+          <h2 className='q8'>8. What should I do if I’m traveling from out of town?</h2>
           <p className='ans'>
             Knowing most of our guests are coming out of state, and even from out of country we sat and put together a list of our favourite
             activities, iconic loactions to visit, and best food places. This list may be a bit biased so take it with a grain of salt but 
             we included every place we thought would be enjoyable!
           </p>
 
-          <h2 className='q10'>10. Is there a hashtag?</h2>
+          <h2 className='q9'>9. Is there a hashtag?</h2>
           <p className='ans'>
             We would love to see any and every picture or video you capture on our special day so please use #ankeenandquinton2025 on your social media posts
             to share the memories with everyone to view.
           </p>
 
-          <h2 className='q11'>11. Who to reach out to with questions / special requests?</h2>
+          <h2 className='q10'>10. Who to reach out to with questions / special requests?</h2>
           <p className='ans'>
             You can reach out to either of us on our phone numbers or our main wedding email qna.weddingplans@gmail.com. 
           </p>

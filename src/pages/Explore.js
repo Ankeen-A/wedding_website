@@ -5,7 +5,7 @@ const Explore = () => {
   return (
     <div className='exploreBackground'>
       <div className='exploreBody'>
-        <h1 className='title'>Explore Los Angeles</h1>
+        <h1 className='title'>Explore Los Angeles</h1><br></br><br></br>
         <p>We combined a list of our personal favorite things to do and food that we have enjoyed.</p>
         
         <h2>Places to Stay</h2>
