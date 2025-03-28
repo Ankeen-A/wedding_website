@@ -27,6 +27,7 @@
   color: white;
 }
 
+
 .exploreBackground::before {
   content: '';
   position: fixed;
@@ -37,7 +38,7 @@
   background-size: cover;
   background-position: center;
   z-index: 1;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('../assets/bg11.JPG'); 
+  background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('../assets/bge8.jpg'); /* bg11 */
   filter: contrast(0.7) brightness(0.7) saturate(1.6);
 }
 

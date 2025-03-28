@@ -44,7 +44,7 @@
   background-size: cover;
   background-position: center;
   z-index: 1;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('../assets/bg6.JPG'); /* Adjust path as needed */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('../assets/bge7.jpg'); /* bg6.JPG */
   filter: contrast(0.7) brightness(0.7) saturate(1.6);
 }
 
