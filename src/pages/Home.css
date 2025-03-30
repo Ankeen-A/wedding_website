@@ -72,6 +72,10 @@ p {
 }
 
 @media (max-width: 768px) {
+  .homeBackground::before {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('../assets/phone9.jpg'); /* bg11 */
+  }
+
   .homeTitle{
     width: 90%;
   }

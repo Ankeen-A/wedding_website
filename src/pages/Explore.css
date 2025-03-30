@@ -82,6 +82,10 @@ p {
 
 
 @media (max-width: 768px) {
+  .exploreBackground::before {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('../assets/phone4.jpg'); /* bg11 */
+  }
+
   .exploreBody {
     width:80%;
     justify-content: center;

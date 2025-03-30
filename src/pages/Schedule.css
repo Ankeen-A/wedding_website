@@ -112,6 +112,10 @@ li{
 }
 
 @media (max-width: 768px) {
+  .scheduleBackground::before {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('../assets/phone6.jpg'); /* bg11 */
+  }
+
   .scheduleBody {
     width:80%;
     justify-content: center;
