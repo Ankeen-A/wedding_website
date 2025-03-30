@@ -8,7 +8,7 @@ const FAQ = () => {
       {/* <img src={flower1} alt="flower" className="flower1"></img>
       <img src={flower2} alt="flower" className="flower2"></img> */}
 
-      <div className='faqBody'>
+      <div className='registryBody'>
       <h1 className='title'>Registry Information</h1><br></br><br></br>
         <div className='questions'> 
           <p className='ans'>

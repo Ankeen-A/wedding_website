@@ -31,7 +31,8 @@ const RSVP = () => {
         }));
       }
     } else {
-      setFormData({ ...formData, [name]: value.trim() }); // Added `.trim()` to clean input
+      const shouldTrim = !["comments"].includes(name);
+      setFormData({ ...formData, [name]: shouldTrim ? value.trim() : value });
     }
   };
 
